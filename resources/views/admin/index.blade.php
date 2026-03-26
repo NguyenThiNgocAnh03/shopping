@@ -34,8 +34,6 @@
         <td>{{ $user->email }}</td>
         <td>{{ $user->role }}</td>
         <td>
-            <a href="/users/{{ $user->id }}">Xem</a> |
-
             <form action="/users/{{ $user->id }}" method="POST" style="display:inline;">
                 @csrf
                 @method('DELETE')

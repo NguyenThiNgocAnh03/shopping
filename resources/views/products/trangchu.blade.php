@@ -29,7 +29,8 @@
 <a href="/register">Đăng ký</a>
 <a href="/login">Đăng nhập</a>
 <br>
-<a href="/admin/index">Quản lý tài khoản</a>
+<a href="/users">Quản lý tài khoản</a>
+<br>
 <br>
 <a href="/products/create">+ Thêm sản phẩm</a>
 

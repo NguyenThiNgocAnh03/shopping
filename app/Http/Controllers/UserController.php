@@ -13,15 +13,14 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.index', compact('users'));
+       return view('admin.index', compact('users'));
     }
 
     // 2. Hiển thị Form để thêm User mới (Khi bấm nút + Thêm User)
     public function create()
-    {
-        return view('admin.users.create');
-    }
-
+{
+    return view('admin.create');
+}
     // 3. Xử lý lưu User mới vào Database
     public function store(Request $request)
     {
@@ -39,7 +38,7 @@ class UserController extends Controller
             'role' => 'user', // Mặc định là user
         ]);
 
-        return redirect()->route('users.index')->with('success', 'Thêm người dùng mới thành công!');
+        return redirect()->route('admin.index')->with('success', 'Thêm người dùng mới thành công!');
     }
 public function profile()
 {
