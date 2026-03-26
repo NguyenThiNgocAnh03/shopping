@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -8,24 +9,31 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
-    // 1. Đăng ký (Register)
+    public function showLogin() {
+        return view('auth.login');
+    }
+
+    public function showRegister() {
+        return view('auth.register');
+    }
+
     public function register(Request $request) {
         $request->validate([
             'username' => 'required|unique:users',
-            'password' => 'required|min:6|confirmed', // Cần field password_confirmation ở form
+            'email'    => 'required|email|unique:users',
+            'password' => 'required|min:6|confirmed',
         ]);
 
         User::create([
             'username' => $request->username,
-            'email' => $request->email,
-            'password' => Hash::make($request->password), // Chuẩn bảo mật: Luôn Hash mật khẩu
-            'role' => 'user'
+            'email'    => $request->email,
+            'password' => Hash::make($request->password),
+            'role'     => 'user'
         ]);
 
-        return redirect()->route('login')->with('success', 'Đăng ký thành công!');
+        return redirect()->route('login')->with('success', 'Đăng ký thành công! Hãy đăng nhập.');
     }
 
-    // 2. Đăng nhập (Login)
     public function login(Request $request) {
         $credentials = $request->validate([
             'username' => 'required',
@@ -33,14 +41,13 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            $request->session()->regenerate(); // Chuẩn bảo mật: Chống tấn công Session Fixation
-            return redirect()->intended('products'); // Vào trang sản phẩm của Ngọc Anh
+            $request->session()->regenerate();
+            return redirect()->intended('users'); // Sau khi login thì vào danh sách User
         }
 
         return back()->withErrors(['username' => 'Sai tài khoản hoặc mật khẩu']);
     }
 
-    // 3. Đăng xuất (Logout)
     public function logout(Request $request) {
         Auth::logout();
         $request->session()->invalidate();

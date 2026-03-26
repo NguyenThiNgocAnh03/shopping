@@ -15,7 +15,7 @@
                     <h3 class="mt-2 text-dark fw-bold">Đăng ký</h3>
                 </div>
 
-                <form action="{{ route('/register') }}" method="POST">
+                <form action="{{ route('register') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label">Tài khoản</label>

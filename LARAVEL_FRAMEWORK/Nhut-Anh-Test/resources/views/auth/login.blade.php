@@ -24,7 +24,7 @@
                     <h3 class="mt-2 fw-bold">Đăng nhập</h3>
                 </div>
 
-                <form action="{{ route('/login') }}" method="POST">
+                <form action="{{ route('login') }}" method="POST">
                     @csrf
                     <div class="mb-3">
                         <label class="form-label fw-semibold">Tài khoản</label>
