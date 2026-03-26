@@ -23,7 +23,7 @@
         <option value="price_asc">Giá tăng dần</option>
         <option value="price_desc">Giá giảm dần</option>
     </select>
-
+<input type="number" name="price" placeholder="Nhập giá" value="{{ request('price') }}">
     <button type="submit">Áp dụng</button>
 </form>
 <a href="#">Đăng ký</a>
@@ -31,7 +31,7 @@
 <br>
 <a href="#">User</a><br>
 
-<a href="#">+ Thêm sản phẩm</a><br>
+<a href="/products/create">+ Thêm sản phẩm</a>
 
 <table border="1" width="100%">
     <tr>
@@ -44,13 +44,14 @@
 
     @foreach($products as $p)
     <tr>
-        <td>{{ $p->name }}</td>
+       <td>
+        <a href="/products/{{ $p->id }}"> {{ $p->name }}</a> </td>
         <td>{{ number_format($p->price) }}</td>
         <td>{{ $p->category->name ?? 'Không có' }}</td>
         <td>{{ $p->stock }}</td>
         <td>
-            <a href="#">Sửa</a> |
-            <a href="#">Xóa</a>
+            <a href="/products/edit/{{ $p->id }}">Sửa</a> |
+            <a href="/products/delete/{{ $p->id }}" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này?')">Xóa</a>
         </td>
     </tr>
     @endforeach
