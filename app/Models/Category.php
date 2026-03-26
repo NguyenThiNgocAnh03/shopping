@@ -6,7 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Category extends Model
 {
-  public function products() {
-    return $this->hasMany(Product::class);
-}
+    protected $table = 'categories';
+
+    public $timestamps = false;
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
 }
