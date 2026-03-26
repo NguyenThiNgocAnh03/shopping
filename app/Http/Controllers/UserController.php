@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('admin.users.index', compact('users'));
+        return view('admin.index', compact('users'));
     }
 
     // 2. Hiển thị Form để thêm User mới (Khi bấm nút + Thêm User)
@@ -33,6 +33,7 @@ class UserController extends Controller
 
         User::create([
             'username' => $request->username,
+            'name' => $request->username,
             'email' => $request->email,
             'password' => Hash::make($request->password),
             'role' => 'user', // Mặc định là user
@@ -40,7 +41,11 @@ class UserController extends Controller
 
         return redirect()->route('users.index')->with('success', 'Thêm người dùng mới thành công!');
     }
-
+public function profile()
+{
+    $user = Auth::user(); // user đang đăng nhập
+    return view('auth.account', compact('user'));
+}
     // 4. Xóa người dùng
     public function destroy($id)
     {

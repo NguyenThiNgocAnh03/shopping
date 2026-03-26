@@ -29,8 +29,8 @@
 <a href="/register">Đăng ký</a>
 <a href="/login">Đăng nhập</a>
 <br>
-<a href="/users/profile">User</a><br>
-
+<a href="/admin/index">Quản lý tài khoản</a>
+<br>
 <a href="/products/create">+ Thêm sản phẩm</a>
 
 <table border="1" width="100%">
