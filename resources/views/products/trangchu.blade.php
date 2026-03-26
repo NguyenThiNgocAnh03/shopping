@@ -26,10 +26,10 @@
 <input type="number" name="price" placeholder="Nhập giá" value="{{ request('price') }}">
     <button type="submit">Áp dụng</button>
 </form>
-<a href="#">Đăng ký</a>
-<a href="#">Đăng nhập</a>
+<a href="/register">Đăng ký</a>
+<a href="/login">Đăng nhập</a>
 <br>
-<a href="#">User</a><br>
+<a href="/users/profile">User</a><br>
 
 <a href="/products/create">+ Thêm sản phẩm</a>
 
