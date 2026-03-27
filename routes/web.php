@@ -31,3 +31,12 @@ Route::middleware('auth')->group(function () {
     // CRUD Sản phẩm - Ngọc Anh làm
     Route::resource('products', ProductController::class);
 });
+// routes/web.php
+
+
+
+// Đảm bảo bạn có dòng này, Laravel sẽ tự đặt tên 'users.index' cho trang danh sách
+Route::resource('users', UserController::class);
+
+// Giả sử route sản phẩm của bạn trông như thế này
+Route::resource('products', ProductController::class);
