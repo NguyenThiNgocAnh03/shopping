@@ -34,6 +34,10 @@
 </a><br>
 
 <a href="{{ route('products.create') }}">+ Thêm sản phẩm</a>
+<a href="/users">Quản lý tài khoản</a>
+<br>
+<br>
+<a href="/products/create">+ Thêm sản phẩm</a>
 
 <table border="1" width="100%">
     <tr>
