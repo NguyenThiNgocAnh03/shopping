@@ -29,11 +29,8 @@
 <a href="/register">Đăng ký</a>
 <a href="/login">Đăng nhập</a>
 <br>
-<a href="{{ route('users.index') }}" class="btn btn-link p-0 text-decoration-none text-dark fw-bold">
-    Users
-</a><br>
 
-<a href="{{ route('products.create') }}">+ Thêm sản phẩm</a>
+
 <a href="/users">Quản lý tài khoản</a>
 <br>
 <br>
