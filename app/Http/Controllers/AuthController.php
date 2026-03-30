@@ -42,7 +42,7 @@ class AuthController extends Controller
 
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->intended('users'); // Sau khi login thì vào danh sách User
+            return redirect()->intended('products');
         }
 
         return back()->withErrors(['username' => 'Sai tài khoản hoặc mật khẩu']);
